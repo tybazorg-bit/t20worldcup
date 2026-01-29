@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T20 World Cup 2026 — A Global Cricket Festival in the Making</title>
+  <meta name="description" content="T20 World Cup 2026 — fast, thrilling, and global. Explore teams to watch, star players, strategies, fan engagement, and why this edition matters for cricket’s future." />
+
+  <style>
+    :root{
+      /* Premium “Cricket + Festival” brand palette */
+      --bg0:#070A12;
+      --bg1:#0B1220;
+      --card:#0F1B2E;
+      --card2:#0D1728;
+      --text:#EAF0FF;
+      --muted:#B8C3E0;
+      --muted2:#92A0C6;
+
+      --primary:#3B82F6;   /* Royal Blue */
+      --primary2:#22C55E;  /* Pitch Green */
+      --accent:#F59E0B;    /* Stadium Gold */
+      --danger:#EF4444;
+
+      --stroke:rgba(255,255,255,.10);
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --radius: 18px;
+
+      --max: 1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--text);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background:
+        radial-gradient(900px 500px at 15% 10%, rgba(59,130,246,.18), transparent 60%),
+        radial-gradient(700px 420px at 85% 15%, rgba(34,197,94,.16), transparent 55%),
+        radial-gradient(800px 520px at 60% 85%, rgba(245,158,11,.10), transparent 60%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+
+    a{color:inherit; text-decoration:none}
+    .wrap{
+      width:100%;
+      padding: 24px 18px 56px;
+    }
+    .container{
+      width:100%;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    /* HEADER */
+    header{
+      position:relative;
+      border: 1px solid var(--stroke);
+      border-radius: calc(var(--radius) + 8px);
+      padding: 22px 22px 20px;
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    header:before{
+      content:"";
+      position:absolute;
+      inset:-1px;
+      background:
+        radial-gradient(800px 300px at 20% 0%, rgba(59,130,246,.22), transparent 55%),
+        radial-gradient(700px 280px at 90% 10%, rgba(34,197,94,.18), transparent 52%),
+        linear-gradient(180deg, rgba(255,255,255,.05), transparent 60%);
+      pointer-events:none;
+      z-index:0;
+    }
+
+    .topbar{
+      position:relative;
+      z-index:1;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:260px;
+    }
+    .logo{
+      width:44px;height:44px;border-radius:14px;
+      background:
+        conic-gradient(from 210deg, var(--primary), var(--primary2), var(--accent), var(--primary));
+      box-shadow: 0 10px 30px rgba(59,130,246,.15);
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .brand h1{
+      font-size: 18px;
+      margin:0;
+      letter-spacing:.2px;
+      line-height:1.15;
+    }
+    .brand p{
+      margin:2px 0 0;
+      color:var(--muted);
+      font-size: 13px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+      user-select:none;
+    }
+    .pill:hover{ transform: translateY(-1px); background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.16); }
+
+    .hero{
+      position:relative;
+      z-index:1;
+      margin-top: 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:stretch;
+    }
+
+    @media (max-width: 900px){
+      .hero{grid-template-columns:1fr}
+      .brand{min-width:unset}
+      .actions{justify-content:flex-start}
+    }
+
+    .heroCard{
+      border: 1px solid var(--stroke);
+      background: rgba(11,18,32,.65);
+      border-radius: var(--radius);
+      padding: 18px 18px 16px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+    }
+    .kicker{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      margin-bottom:10px;
+    }
+    .tag{
+      font-size: 12px;
+      color: rgba(255,255,255,.85);
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+    }
+    .tag.primary{ border-color: rgba(59,130,246,.35); background: rgba(59,130,246,.14); }
+    .tag.green{ border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.12); }
+    .tag.gold{ border-color: rgba(245,158,11,.35); background: rgba(245,158,11,.12); }
+
+    .title{
+      font-size: 28px;
+      margin: 0 0 8px;
+      line-height: 1.25;
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      font-size: 14px;
+      max-width: 60ch;
+    }
+
+    .ctaRow{
+      margin-top:14px;
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      font-weight: 600;
+      font-size: 14px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.18); }
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(59,130,246,.95), rgba(34,197,94,.75));
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 16px 40px rgba(59,130,246,.20);
+    }
+    .btnPrimary:hover{ background: linear-gradient(135deg, rgba(59,130,246,1), rgba(34,197,94,.85)); }
+
+    .miniStats{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    @media (max-width: 520px){
+      .miniStats{grid-template-columns:1fr}
+      .title{font-size:24px}
+    }
+    .stat{
+      border: 1px solid var(--stroke);
+      border-radius: 16px;
+      background: rgba(255,255,255,.04);
+      padding: 12px 12px 10px;
+      min-height: 82px;
+    }
+    .stat .num{
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing:.2px;
+      margin:0;
+    }
+    .stat .lbl{
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* BODY */
+    main{
+      margin-top: 18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 340px;
+      gap: 16px;
+      align-items:start;
+    }
+    @media (max-width: 980px){
+      .grid{grid-template-columns:1fr}
+    }
+
+    .card{
+      border: 1px solid var(--stroke);
+      background: linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.30);
+    }
+
+    .content h2{
+      margin: 0 0 10px;
+      font-size: 20px;
+      letter-spacing:.2px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;
+      background: linear-gradient(135deg, var(--primary), var(--primary2));
+      box-shadow: 0 0 0 4px rgba(59,130,246,.14);
+      flex:0 0 auto;
+    }
+    .content p{
+      margin: 0 0 12px;
+      color: rgba(234,240,255,.92);
+    }
+    .content p.muted{ color: var(--muted); }
+
+    .callout{
+      border: 1px solid rgba(245,158,11,.28);
+      background: rgba(245,158,11,.08);
+      border-radius: 16px;
+      padding: 14px;
+      margin: 14px 0 6px;
+    }
+    .callout strong{ color: rgba(255,255,255,.95); }
+    .callout a{
+      color:#0B1220;
+      background: rgba(245,158,11,.95);
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 800;
+      display:inline-block;
+      margin-left:6px;
+    }
+    .callout a:hover{ filter: brightness(1.05); }
+
+    .inlineLink{
+      color: rgba(255,255,255,.95);
+      font-weight: 800;
+      border-bottom: 1px dashed rgba(59,130,246,.55);
+      padding-bottom: 2px;
+      transition: opacity .15s ease;
+    }
+    .inlineLink:hover{ opacity:.9; }
+
+    /* Sidebar */
+    .sidebar .titleS{
+      margin: 0 0 10px;
+      font-size: 15px;
+      color: rgba(255,255,255,.9);
+      letter-spacing:.2px;
+    }
+    .toc{
+      margin:0;
+      padding:0;
+      list-style:none;
+      display:grid;
+      gap:8px;
+    }
+    .toc a{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding: 10px 12px;
+      border:1px solid var(--stroke);
+      border-radius: 14px;
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 13px;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .toc a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.16);
+      color: rgba(255,255,255,.9);
+    }
+    .badge{
+      font-size: 11px;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.05);
+      color: var(--muted);
+      white-space:nowrap;
+    }
+
+    /* Footer */
+    footer{
+      margin-top: 18px;
+      border: 1px solid var(--stroke);
+      border-radius: calc(var(--radius) + 6px);
+      padding: 18px;
+      background: rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    .footerGrid{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      align-items:start;
+    }
+    @media (max-width: 900px){
+      .footerGrid{grid-template-columns:1fr}
+    }
+    .footerTitle{
+      margin:0 0 6px;
+      font-size: 15px;
+      letter-spacing:.2px;
+    }
+    .footerText{
+      margin:0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .social{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:flex-end;
+    }
+    @media (max-width: 900px){
+      .social{justify-content:flex-start}
+    }
+    .social a{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--stroke);
+      background: rgba(255,255,255,.04);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      font-weight: 650;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .social a:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.16);
+    }
+
+    /* Smooth anchor scroll */
+    html{scroll-behavior:smooth}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <div class="container">
+
+      <!-- HEADER -->
+      <header aria-label="Page Header">
+        <div class="topbar">
+          <div class="brand">
+            <div class="logo" aria-hidden="true"></div>
+            <div>
+              <h1>T20 World Cup 2026</h1>
+              <p>A global cricket festival — speed, drama & unforgettable moments</p>
+            </div>
+          </div>
+
+          <div class="actions" aria-label="Quick Actions">
+            <a class="pill" href="#teams">Teams</a>
+            <a class="pill" href="#players">Players</a>
+            <a class="pill" href="#strategy">Strategy</a>
+            <a class="pill" href="#fans">Fans</a>
+            <a class="pill" href="#future">Future</a>
+          </div>
+        </div>
+
+        <div class="hero">
+          <section class="heroCard" aria-label="Hero Intro">
+            <div class="kicker">
+              <span class="tag primary">High-Pressure Format</span>
+              <span class="tag green">Global Celebration</span>
+              <span class="tag gold">Unpredictable Thrills</span>
+            </div>
+
+            <h2 class="title">T20 World Cup 2026 — A Global Cricket Festival in the Making</h2>
+            <p class="subtitle">
+              The T20 World Cup 2026 is already creating massive excitement among cricket fans around the world. As one of
+              the most popular formats of the game, T20 cricket has transformed how fans experience the sport, combining speed,
+              entertainment, and high-pressure moments into just a few hours. The 2026 edition is expected to take this excitement
+              to an entirely new level, bringing together top teams, star players, and millions of passionate supporters.
+            </p>
+
+            <!-- FIRST LINK: Intro ke andar mid (callout) -->
+            <div class="callout" role="note">
+              <strong>Live match buzz?</strong>
+              Catch the hype here:
+              <a href="https://t20wc26.com/crictime" target="_blank" rel="noopener noreferrer">Crictime IND vs PAK</a>
+              <div style="margin-top:8px;color:var(--muted);font-size:13px">
+                Unlike traditional formats, the T20 World Cup is known for its unpredictability. A single over can change the fate of a match,
+                and a single player can become a hero overnight. This is exactly why the T20 World Cup 2026 is being viewed as more than just a tournament;
+                it is a global cricket celebration.
+              </div>
+            </div>
+
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="#content">Explore the full story</a>
+              <a class="btn" href="#footer">Jump to social links</a>
+            </div>
+          </section>
+
+          <aside class="heroCard" aria-label="Highlights">
+            <div class="miniStats">
+              <div class="stat">
+                <p class="num">Fast</p>
+                <p class="lbl">Short, explosive matches</p>
+              </div>
+              <div class="stat">
+                <p class="num">Unpredictable</p>
+                <p class="lbl">One over can flip everything</p>
+              </div>
+              <div class="stat">
+                <p class="num">Global</p>
+                <p class="lbl">Millions of fans connected</p>
+              </div>
+            </div>
+            <p class="muted" style="margin:12px 0 0;color:var(--muted);font-size:13px">
+              Pro tip: Use the section navigator on the right (or top pills on mobile) to jump instantly.
+            </p>
+          </aside>
+        </div>
+      </header>
+
+      <!-- BODY -->
+      <main id="content" class="grid" aria-label="Main Content">
+        <article class="card content">
+          <section id="popularity">
+            <h2><span class="dot" aria-hidden="true"></span>Growing Popularity of the T20 World Cup</h2>
+            <p>
+              Over the years, the T20 World Cup has gained immense popularity, especially among younger audiences. Fast-paced matches,
+              thrilling finishes, and nonstop action make it perfect for modern viewers who want excitement without long waiting times.
+              By 2026, T20 cricket will be even more influential, with leagues and international competitions shaping new stars and strategies.
+            </p>
+            <p>
+              The T20 World Cup 2026 is expected to reflect this evolution. Teams will come prepared with aggressive batting lineups,
+              innovative bowling tactics, and athletic fielding units. The competition will not only test skill but also adaptability and mental strength.
+            </p>
+          </section>
+
+          <section id="special" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>What Makes T20 World Cup 2026 Special</h2>
+            <p>
+              Every T20 World Cup has its own identity, and the 2026 edition is shaping up to be one of the most competitive tournaments ever.
+              With cricket expanding into new regions, more teams are becoming stronger and more confident on the global stage.
+              This means traditional powerhouses can no longer take matches lightly.
+            </p>
+            <p>
+              The tournament will showcase a blend of experienced players and young talent. Veterans will bring calmness under pressure,
+              while young players will add fearlessness and energy. This mix is what makes the T20 World Cup 2026 highly unpredictable and exciting.
+            </p>
+          </section>
+
+          <section id="teams" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Teams to Watch in T20 World Cup 2026</h2>
+            <p>
+              Cricket fans are already speculating about which teams will dominate the tournament. Established teams like India, Australia,
+              England, Pakistan, and New Zealand are always strong contenders due to their depth and experience. At the same time, emerging teams
+              are closing the gap and have proven that they can challenge anyone on their day.
+            </p>
+            <p>
+              The T20 format allows underdog teams to surprise stronger opponents, which keeps the competition open and thrilling.
+              In the 2026 World Cup, fans can expect intense group-stage battles and nail-biting knockout matches.
+            </p>
+          </section>
+
+          <section id="players" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Star Players and Rising Talents</h2>
+            <p>
+              One of the biggest attractions of the T20 World Cup is the players. The 2026 tournament will feature some of the biggest names in world cricket,
+              players who have mastered the art of T20 cricket through international matches and domestic leagues.
+            </p>
+            <p>
+              Alongside established stars, new talents will make their mark on the world stage. The T20 World Cup has always been a platform where unknown players
+              turn into global sensations. The 2026 edition will be no different, as young cricketers seize their opportunity to shine under pressure.
+            </p>
+          </section>
+
+          <section id="strategy" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Impact of Strategy and Innovation</h2>
+            <p>
+              T20 cricket is not just about power hitting; it is equally about smart strategy. In the T20 World Cup 2026, teams will rely heavily on data analysis,
+              matchups, and flexible game plans. Captains and coaches will need to make quick decisions, often changing strategies mid-match.
+            </p>
+            <p>
+              Innovations such as unusual bowling changes, aggressive field placements, and unconventional batting orders will play a crucial role.
+              The teams that adapt fastest will have a significant advantage in this high-intensity tournament.
+            </p>
+
+            <!-- SECOND LINK: content ke mid mein -->
+            <p class="muted" style="margin-top:10px">
+              Want a dedicated match hub experience? Check this:
+              <a class="inlineLink" href="https://indvspak.net/" target="_blank" rel="noopener noreferrer">Ind vs Pak Live Crictime</a>
+              — a relevant stop for fans who love real-time cricket buzz.
+            </p>
+          </section>
+
+          <section id="fans" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Fan Engagement and Global Reach</h2>
+            <p>
+              The T20 World Cup 2026 will not only be about what happens on the field but also about fan engagement off the field.
+              With social media, digital streaming, and global broadcasting, fans from every corner of the world will feel connected to the action.
+            </p>
+            <p>
+              Cricket has become a truly global sport, and the T20 World Cup is its most accessible format. The 2026 tournament will further strengthen cricket’s presence
+              in non-traditional markets, helping the game reach new audiences and cultures.
+            </p>
+          </section>
+
+          <section id="moments" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Pressure, Drama, and Memorable Moments</h2>
+            <p>
+              What truly defines a T20 World Cup are the unforgettable moments. Last-over finishes, stunning catches, hat-tricks, and match-winning innings become part of cricket history.
+              The pressure of representing a nation on such a big stage creates drama that fans remember for years.
+            </p>
+            <p>
+              The T20 World Cup 2026 is expected to deliver plenty of such moments. Every match will carry significance, and every performance will be closely watched by millions.
+            </p>
+          </section>
+
+          <section id="future" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Why T20 World Cup 2026 Matters for Cricket’s Future</h2>
+            <p>
+              The 2026 edition of the T20 World Cup will play a key role in shaping the future of international cricket.
+              It will influence how teams prepare, how young players develop, and how fans consume the sport.
+              The success of this tournament will further strengthen T20 cricket as a major pillar of the game.
+            </p>
+            <p>
+              For players, it is a chance to create a legacy. For fans, it is an opportunity to witness history in the making.
+              And for cricket itself, the T20 World Cup 2026 represents growth, innovation, and global unity through sport.
+            </p>
+          </section>
+
+          <section id="final" style="margin-top:18px">
+            <h2><span class="dot" aria-hidden="true"></span>Final Thoughts</h2>
+            <p>
+              The T20 World Cup 2026 is more than just a cricket tournament; it is a global event that brings excitement, emotion, and entertainment together.
+              With competitive teams, world-class players, and millions of passionate fans, the tournament promises unforgettable action and drama.
+            </p>
+            <p>
+              As the countdown continues, one thing is certain: the T20 World Cup 2026 will capture the attention of the cricketing world and deliver moments that will be remembered for generations.
+            </p>
+          </section>
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="card sidebar" aria-label="Quick Navigator">
+          <h3 class="titleS">Section Navigator</h3>
+          <ul class="toc">
+            <li><a href="#popularity"><span>Growing Popularity</span><span class="badge">01</span></a></li>
+            <li><a href="#special"><span>What Makes It Special</span><span class="badge">02</span></a></li>
+            <li><a href="#teams"><span>Teams to Watch</span><span class="badge">03</span></a></li>
+            <li><a href="#players"><span>Star Players</span><span class="badge">04</span></a></li>
+            <li><a href="#strategy"><span>Strategy & Innovation</span><span class="badge">05</span></a></li>
+            <li><a href="#fans"><span>Fan Engagement</span><span class="badge">06</span></a></li>
+            <li><a href="#moments"><span>Drama & Moments</span><span class="badge">07</span></a></li>
+            <li><a href="#future"><span>Cricket’s Future</span><span class="badge">08</span></a></li>
+            <li><a href="#final"><span>Final Thoughts</span><span class="badge">09</span></a></li>
+          </ul>
+
+          <div class="callout" style="margin-top:14px">
+            <strong>UX Tip:</strong> Full width layout, responsive cards, smooth scroll, and high contrast text for readability.
+          </div>
+        </aside>
+      </main>
+
+      <!-- FOOTER -->
+      <footer id="footer" aria-label="Footer">
+        <div class="footerGrid">
+          <div>
+            <h4 class="footerTitle">T20 World Cup 2026 — Stay Connected</h4>
+            <p class="footerText">
+              Built with a premium dark theme + cricket-festival accents (royal blue, pitch green, stadium gold) for a fully professional,
+              fully engaging brand feel. You can replace social URLs with your official pages anytime.
+            </p>
+          </div>
+
+          <div class="social" aria-label="Social Links">
+            <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">Facebook</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">X (Twitter)</a>
+            <a href="#" target="_blank" rel="noopener noreferrer">YouTube</a>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+</body>
+</html>
+
+
+
